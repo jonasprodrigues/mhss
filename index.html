@@ -8,37 +8,96 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  
+  <style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+.animate-fadeIn.delay-200 {
+  animation-delay: 0.2s;
+}
+</style>
 
 </head>
 <body class="">
 
+  <!-- Header -->
+<header class="w-full fixed top-0 left-0 bg-white shadow z-50" style="background: linear-gradient(to left, #ffffff, #538a950D);">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
-  <!-- Hero Section -->
-  <section class="">
-    <div class="">
+    <!-- Logo -->
+    <a href="#" class="flex items-center">
+      <img src="assets/logo5.png" alt="Logo" class="w-32 md:w-40">
+    </a>
 
-      <!-- Coluna Esquerda -->
-      <div class="flex flex-col justify-center gap-6">
-        <div class="flex justify-center">
-          <img src="assets/logo.png" alt="Logo" class="pt-20 lg:pt-0 w-48 md:w-80" loading="lazy">
-        </div>
+    <div class="flex items-center justify-center h-10">
+  <p class="text-lg italic font-semibold text-green-500 drop-shadow-lg animate-pulse">
+    “Prevenir é a nossa missão, proteger é a nossa paixão.”
+  </p>
+</div>
 
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-          SEGURANÇA DO TRABALHO
-          <span class="text-yellow-300">Saiba mais</span>
-        </h1>
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex space-x-8 text-lg font-medium">
+      <a href="#servicos" class="hover:text-yellow-400 transition">Serviços</a>
+      <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
+      <a href="#contato" class="hover:text-yellow-400 transition">Contato</a>
+    </nav>
 
+    <!-- Botão Mobile -->
+    <button id="menuBtn" class="md:hidden text-3xl focus:outline-none">
+      ☰
+    </button>
+  </div>
+
+  <!-- Menu Mobile -->
+  <div id="mobileMenu" class="hidden md:hidden flex flex-col items-center bg-white shadow-lg py-6 space-y-4 text-lg font-medium">
+    <a href="#servicos" class="hover:text-yellow-400 transition">Serviços</a>
+    <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
+    <a href="#contato" class="hover:text-yellow-400 transition">Contato</a>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+
+<!-- Hero 3 -->
+<section class="pt-40" style="background: linear-gradient(to left, #ffffff, #0a5e6f2f);">
+  <div class="max-w-6xl mx-auto px-6  flex flex-col md:flex-row items-center gap-12">
+
+        <!-- Coluna Esquerda -->
+    <div class="flex flex-col items-center md:items-start justify-center text-center md:text-left md:w-2/5">
+      <h2 class="text-3xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-green-400 to-green-600 drop-shadow-lg">
+        Seu time, protegido todos os dias
+      </h2>
+      <p class="mt-4 text-base md:text-2xl text-gray-700">
+        Transformamos normas e procedimentos em ações que salvam vidas e reduzem acidentes.
+      </p>
+    </div>
+
+    <!-- Coluna Direita -->
+    <div class="flex flex-col justify-center gap-6 md:w-3/5">
+      <div class="flex justify-center md:justify-start">
+       <img src="assets/logo4.png" alt="Logo" class="pt-20 lg:pt-0 w-64 md:w-full md:max-w-[1400px]" loading="lazy">
       </div>
 
-      <!-- Coluna Direita -->
-      <div class="flex items-center justify-center">
-
-
-        </div>
-
+      
     </div>
-  </section>
+
+
+  </div>
+</section>
+
+
 
 
   <!-- Serviços -->
@@ -58,7 +117,7 @@
 
 <section class="w-full py-10 bg-white">
   <!-- Título -->
-  <h2 class="text-center text-3xl font-bold mb-6">ALGUNS DE NOSSOS CLIENTES</h2>
+  <h2 class="text-center text-3xl font-bold mb-6">ALGUNS DOS NOSSOS CLIENTES</h2>
 
   <!-- Container -->
   <div class="overflow-hidden relative w-[90%] mx-auto">
@@ -130,7 +189,8 @@
 
         <a href="https://www.instagram.com/jonaspereira/" 
            target="_blank" 
-           class="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+           class="flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600
+ hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg transition">
           <i class="bi bi-instagram text-xl"></i>
           Siga-nos
         </a>
@@ -138,9 +198,9 @@
 
       <!-- Copyright -->
       <div class="text-center mt-6 md:mt-0 order-2 md:order-1">
-        <p>Copyright &copy; 2025 Angelo Maggion Advocacia | Todos os direitos reservados.</p>
+        <p>Copyright &copy; 2025 - MHSS Segurança do Trabalho &nbsp;&nbsp; | &nbsp;&nbsp;  Todos os direitos reservados.</p>
         <p class="flex items-center justify-center gap-2 mt-2 text-sm ">
-          Feito com <span class="text-pink-500">💜</span> pela < Cod&dev >
+          Feito com <span class="text-blue-500">💙</span> pela < Cod&dev >
           
         </p>
       </div>
