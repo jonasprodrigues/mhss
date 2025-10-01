@@ -8,18 +8,111 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
   <style>
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeIn {
-  animation: fadeIn 1s ease forwards;
-}
-.animate-fadeIn.delay-200 {
-  animation-delay: 0.2s;
-}
-</style>
+
+    
+    /* Botão dourado */
+    .btn-dourado {
+      padding: 12px 24px;
+      border: 2px solid #2c14e2;
+      background-color: transparent;
+      color: rgb(38, 111, 228);
+      font-size: 24px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-dourado:hover {
+      background-color: #2c14e2;
+      color: white;
+    }
+    .btn-dourado:active {
+      transform: scale(0.97);
+    }
+
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+  .animate-fadeIn.delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-scroll {
+      width: 200%; /* necessário para duplicação */
+      animation: scroll 20s linear infinite;
+    }
+
+    @media (min-width: 905px) {
+      .animate-scroll {
+        animation: scroll 30s linear infinite; /* mais suave em desktop */
+      }
+    }
+
+    
+    /* Customização AOS para também ter saída */
+    [data-aos="fade-right"] {
+      transform: translateX(100px);
+      opacity: 0;
+      transition-property: transform, opacity;
+    }
+    [data-aos="fade-right"].aos-animate {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    [data-aos="fade-left"] {
+      transform: translateX(-100px);
+      opacity: 0;
+      transition-property: transform, opacity;
+    }
+    [data-aos="fade-left"].aos-animate {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      [data-aos="fade-right"] {
+        transform: translateX(0);
+      }
+      [data-aos="fade-left"] {
+        transform: translateX(0);
+      }
+    }
+
+
+  </style>
+
+  <script>
+    window.addEventListener("load", function() {
+      AOS.init({
+        duration: 1000,
+        once: false, // anima de novo ao rolar para trás
+      });
+    });
+  </script>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
 
 </head>
 <body class="">
@@ -59,17 +152,6 @@
     <a href="#contato" class="hover:text-yellow-400 transition">Contato</a>
   </div>
 </header>
-
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-</script>
-
-
 <!-- Hero 3 -->
 <section class="pt-40" style="background: linear-gradient(to left, #ffffff, #0a5e6f2f);">
   <div class="max-w-6xl mx-auto px-6  flex flex-col md:flex-row items-center gap-12">
@@ -100,14 +182,103 @@
 
 
 
-  <!-- Serviços -->
+<!-- Serviços -->
   <section id="servicos" class="py-20 px-6 max-w-6xl mx-auto overflow-x-hidden">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
-      Serviços
+      Em quais Serviços podemos ajudar?
+    
     </h2>
     <div class="space-y-16">
 
-      
+      <!-- 1 -->
+      <div class="flex flex-col md:flex-row items-center md:space-x-8" data-aos="fade-right">
+        <img src="assets/cancer.png" alt="Negativa de cobertura" class="w-40 md:w-60 rounded-xl shadow-lg bg-gray-400 p-6 rounded-lg" loading="lazy">
+        <div class="flex flex-col w-full">
+          <h3 class="text-2xl md:text-4xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-left">
+            Consultoria em Segurança do Trabalho
+          </h3>
+          <h2 class="text-1xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-left">
+            Orientação especializada para empresas atenderem às normas de segurança e prevenirem riscos ocupacionais.
+          </h2>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="flex flex-col md:flex-row-reverse items-center md:space-x-8 md:space-x-reverse" data-aos="fade-left">
+        <img src="assets/coracao.png" alt="Terapias" class="w-40 md:w-60 rounded-xl shadow-lg bg-gray-400 p-6 rounded-lg" loading="lazy">
+        <div class="flex flex-col w-full">
+          <h3 class="text-2xl md:text-4xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-right">
+            Fiscalização de Ambiente de Trabalho
+          </h3>
+          <h2 class="text-1xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-right">
+            Verificação das condições de segurança e conformidade com a legislação vigente.
+          </h2>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="flex flex-col md:flex-row items-center md:space-x-8" data-aos="fade-right">
+        <img src="assets/cancer.png" alt="Negativa de cobertura" class="w-40 md:w-60 rounded-xl shadow-lg bg-gray-400 p-6 rounded-lg" loading="lazy">
+        <div class="flex flex-col w-full">
+          <h3 class="text-2xl md:text-4xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-left">
+            Medições de Calor
+          </h3>
+          <h2 class="text-1xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-left">
+            Avaliação da exposição ocupacional ao calor, com base em normas regulamentadoras (NR-15).
+          </h2>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="flex flex-col md:flex-row-reverse items-center md:space-x-8 md:space-x-reverse" data-aos="fade-left">
+        <img src="assets/coracao.png" alt="Terapias" class="w-40 md:w-60 rounded-xl shadow-lg bg-gray-400 p-6 rounded-lg" loading="lazy">
+        <div class="flex flex-col w-full">
+          <h3 class="text-2xl md:text-4xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-right">
+            Medições de Ruído
+          </h3>
+          <h2 class="text-1xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-right">
+            Monitoramento dos níveis de ruído no ambiente laboral para prevenção de perdas auditivas.
+          </h2>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="flex flex-col md:flex-row items-center md:space-x-8" data-aos="fade-right">
+        <img src="assets/cancer.png" alt="Negativa de cobertura" class="w-40 md:w-60 rounded-xl shadow-lg bg-gray-400 p-6 rounded-lg" loading="lazy">
+        <div class="flex flex-col w-full">
+          <h3 class="text-2xl md:text-4xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-left">
+            Elaboração de Análise Preliminar de Riscos e Check list de Conformidade 
+          </h3>
+          <h2 class="text-1xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-left">
+            Estudos para eliminar,reduzir e controla riscos de acisentes. Check lists pré operação de máquinas e equipamentos 
+          </h2>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="flex flex-col md:flex-row-reverse items-center md:space-x-8 md:space-x-reverse" data-aos="fade-left">
+        <img src="assets/coracao.png" alt="Terapias" class="w-40 md:w-60 rounded-xl shadow-lg bg-gray-400 p-6 rounded-lg" loading="lazy">
+        <div class="flex flex-col w-full">
+          <h3 class="text-2xl md:text-4xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-right">
+            Laudos Técnicos e Relatórios de Riscos
+          </h3>
+          <h2 class="text-1xl md:text-2xl font-semibold text-gray-800 mt-6 md:mt-0 break-words max-w-full text-center md:text-right">
+            Emissão de documentos oficiais com medições, análises e recomendações para adequação da empresa às normas de segurança.
+          </h2>
+        </div>
+      </div>
+
+
+    <br><br><br><br>
+    
+    <div class="flex justify-center mb-12">
+      <a href="https://api.whatsapp.com/send?phone=5524999921368&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20uma%20advogada!"
+        class="btn-dourado inline-flex flex-wrap items-center justify-center text-center">
+        <i class="bi bi-whatsapp"></i>
+        <span class="ml-2">
+          Fale com nossos <span class="whitespace-nowrap"><b> especialistas </b></span>
+        </span>
+      </a>
 
 
     </div>
@@ -115,6 +286,7 @@
 
 
 
+  <!-- Clientes -->
 <section class="w-full py-10 bg-white">
   <!-- Título -->
   <h2 class="text-center text-3xl font-bold mb-6">ALGUNS DOS NOSSOS CLIENTES</h2>
@@ -139,40 +311,6 @@
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .animate-scroll {
-    width: 200%; /* necessário para duplicação */
-    animation: scroll 20s linear infinite;
-  }
-
-  @media (min-width: 905px) {
-    .animate-scroll {
-      animation: scroll 30s linear infinite; /* mais suave em desktop */
-    }
-  }
-</style>
-
-
-
-  <!-- Experiência Section -->
-  <section id="experiencia" class="py-20 px-6 max-w-6xl mx-auto">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-8">
-
-      <!-- Conteúdo -->
-      <div class="flex flex-col gap-4 md:w-5/12">
-        <h2 class="text-3xl md:text-4xl font-bold">
-            EXPERIENCIA
-        </h2>
-        
-    </div>
-  </section>
-
 
   <!-- Rodapé -->
   <footer class="bg-gray-900 text-white py-8 mt-12">
