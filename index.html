@@ -117,25 +117,30 @@
 </head>
 <body class="">
 
-  <!-- Header -->
-<header class="w-full fixed top-0 left-0 bg-white shadow z-50" style="background: linear-gradient(to left, #ffffff, #538a950D);">
-  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+<!-- Header -->
+<header class="w-full fixed top-0 left-0 z-50 bg-gradient-to-l from-white to-[#538a950D]">
+  <div class="w-full flex flex-col md:flex-row items-center justify-between px-6 py-4 md:py-6 gap-6 md:gap-12">
 
     <!-- Logo -->
-    <a href="#" class="flex items-center">
-      <img src="assets/logo5.png" alt="Logo" class="w-32 md:w-40">
-    </a>
+    <div class="flex-shrink-0">
+      <a href="#" class="flex items-center">
+        <img src="assets/logo5.png" alt="Logo" class="w-32 md:w-40">
+      </a>
+    </div>
 
-    <div class="flex items-center justify-center h-10">
-  <p class="text-lg italic font-semibold text-green-500 drop-shadow-lg animate-pulse">
-    “Prevenir é a nossa missão, proteger é a nossa paixão.”
-  </p>
-</div>
+    <!-- Frase no meio (desktop) -->
+    <div class="hidden md:flex flex-1 justify-center">
+      <p class="text-lg italic font-semibold text-green-500 drop-shadow-lg animate-pulse text-center">
+        “Prevenir é a nossa missão, proteger é a nossa paixão.”
+      </p>
+    </div>
 
     <!-- Menu Desktop -->
-    <nav class="hidden md:flex space-x-8 text-lg font-medium">
+    <nav class="hidden md:flex flex-shrink-0 space-x-10 text-lg font-medium">
       <a href="#servicos" class="hover:text-yellow-400 transition">Serviços</a>
+      <a href="#quemsomos" class="hover:text-yellow-400 transition">Quem Somos</a>
       <a href="#clientes" class="hover:text-yellow-400 transition">Clientes</a>
+      <a href="#noticias" class="hover:text-yellow-400 transition">Notícias</a>
       <a href="#contato" class="hover:text-yellow-400 transition">Contato</a>
     </nav>
 
@@ -286,6 +291,30 @@
     </div>
   </section>
 
+<!-- Quem Somos -->
+<section id="quemsomos" 
+  class="bg-cover bg-center bg-no-repeat relative  pb-20" 
+  style="
+    background: url('assets/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+  ">
+
+  <h2 class="py-16 text-3xl md:text-4xl font-extrabold text-center mb-12 text-gray-800 uppercase tracking-widest drop-shadow-md">
+    QUEM SOMOS
+  </h2>
+
+  <div class="w-full flex justify-end">
+    <div class="w-full md:w-3/5 pr-[60px]">
+      <p class=" text-bg font-bold text-gray-800 uppercase tracking-widest drop-shadow-md text-justify">
+        Profissional experiente em Segurança do Trabalho, desempenhando um papel estratégico na prevenção de acidentes, fiscalização de atividades industriais e garantia da conformidade com as Normas Regulamentadoras (NRs). Especializado na gestão de riscos ocupacionais, auditoria de segurança e monitoramento de indicadores, assegurando a integridade dos trabalhadores e a eficiência operacional. Atuação destacada na fiscalização de contratos realizando inspeções de segurança, auditorias internas e acompanhamento de frentes de trabalho, garantindo a aplicação das melhores práticas de segurança. 
+        <br><br>
+        Experiência na implantação e monitoramento de programas como PPRA, PCMSO e PGR, além da investigação de acidentes, análise de causas e elaboração de relatórios técnicos para ações preventivas. Habilidade na condução de treinamentos e capacitações, promovendo a conscientização dos colaboradores sobre práticas seguras e cultura prevencionista. Comprometido com a melhoria contínua dos processos de segurança, redução de incidentes e conformidade legal, contribuindo para um ambiente de trabalho mais seguro, produtivo e alinhado às exigências normativas.
+      </p>
+    </div>
+  </div>
+
+</section>
 
 
   <!-- Clientes -->
