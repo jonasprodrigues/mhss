@@ -405,14 +405,31 @@
           Whatsapp&nbsp;&nbsp;
         </a>
 
-        <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=matheus@mhssseguranca.com&su=Contato&body=Olá,%20gostaria%20de%20mais%20informações."
-           target="_blank"
-           rel="noopener noreferrer"
+        <a id="emailLink"
+           href="#"
            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">
           <i class="bi bi-envelope-fill text-xl"></i>
           &nbsp;&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </a>
 
+        <script>
+  const emailLink = document.getElementById("emailLink");
+
+  // Função para detectar mobile
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
+  }
+
+  if (isMobile()) {
+    // Mobile → usa mailto
+    emailLink.href = "mailto:matheus@mhssseguranca.com?subject=Contato&body=Olá,%20gostaria%20de%20mais%20informações.";
+  } else {
+    // Desktop → Gmail web em nova aba
+    emailLink.href = "https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=matheus@mhssseguranca.com&su=Contato&body=Olá,%20gostaria%20de%20mais%20informações.";
+    emailLink.target = "_blank";
+    emailLink.rel = "noopener noreferrer";
+  }
+</script>
 
       </div>
 
